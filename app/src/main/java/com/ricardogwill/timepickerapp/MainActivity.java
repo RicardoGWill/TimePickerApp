@@ -35,16 +35,16 @@ public class MainActivity extends AppCompatActivity {
                 // into 12, and to make sure all minutes are 2 digits long, as well as to add
                 // AM if it is before 12 noon, and PM if it is 12 noon or later.
                 int twelveHourTime = timePicker.getCurrentHour();
-                // Turns 24-hour time into 12-hour time (but 12:00am is 0:0am).
-                if (timePicker.getCurrentHour() > 12) {
-                    twelveHourTime -= 12;
-                }
                 // If the hour (out of 24) is less than 12, "amPm" is AM, otherwise PM.
                 String amPm;
                 if (timePicker.getCurrentHour() < 12) {
                     amPm = " AM";
                 } else {
                     amPm = " PM";
+                }
+                // Turns 24-hour time into 12-hour time (but 12:00am is 0:0am).
+                if (timePicker.getCurrentHour() > 12) {
+                    twelveHourTime -= 12;
                 }
                 // If the converted 12-hour time is NOT "0", keep it as is. Change the hour "0" to "12".
                 String hour;
